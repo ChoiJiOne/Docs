@@ -7,7 +7,7 @@
 
 git 으로 버전 관리 할 때, 강제로 특정 커밋으로 되돌리기 위해서는 다음 명령어를 입력하면 됩니다.
 ```
-$ git reset --hard {COMMIT}
+$ git reset --hard <commit>
 ```
 <br><br>
 
