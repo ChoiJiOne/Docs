@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>git 강제로 특정 커밋으로 되돌리기 - Docs</title>
+  <title>SDL2 Window Hide or Show - Docs</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
   <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
 
@@ -18,8 +18,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "git \uac15\uc81c\ub85c \ud2b9\uc815 \ucee4\ubc0b\uc73c\ub85c \ub418\ub3cc\ub9ac\uae30";
-    var mkdocs_page_input_path = "git \uac15\uc81c\ub85c \ud2b9\uc815 \ucee4\ubc0b\uc73c\ub85c \ub418\ub3cc\ub9ac\uae30.md";
+    var mkdocs_page_name = "SDL2 Window Hide or Show";
+    var mkdocs_page_input_path = "SDL2 Window Hide or Show.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -59,18 +59,11 @@
       
 
 
-  <li class="navtree toctree-l1 inactive">
-    <a class="" href="../SDL2 Window Hide or Show/">SDL2 Window Hide or Show</a>
-  </li>
-    
-      
-
-
   
     
     <li class="navtree toctree-l1 page current">
       <a class="current" href="./">
-        git 강제로 특정 커밋으로 되돌리기
+        SDL2 Window Hide or Show
       </a>
     </li>
     
@@ -83,7 +76,7 @@
     
       
         <li class="toctree-l2">
-          <a class="toctree-l3" href="#git_1">git 강제로 특정 커밋으로 되돌리기</a>
+          <a class="toctree-l3" href="#sdl2-window-hide-or-show_1">SDL2 Window Hide or Show</a>
         </li>
     
       
@@ -96,6 +89,13 @@
 
 
   
+    
+      
+
+
+  <li class="navtree toctree-l1 inactive">
+    <a class="" href="../git 강제로 특정 커밋으로 되돌리기/">git 강제로 특정 커밋으로 되돌리기</a>
+  </li>
     
       
 
@@ -217,7 +217,7 @@
     
       
     
-    <li>git 강제로 특정 커밋으로 되돌리기</li>
+    <li>SDL2 Window Hide or Show</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -227,20 +227,30 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="git">git 강제로 특정 커밋으로 되돌리기</h1>
+                <h1 id="sdl2-window-hide-or-show">SDL2 Window Hide or Show</h1>
 <ul>
-<li>작성자 : 최지원
-<br><br></li>
+<li>작성자 : 최지원</li>
 </ul>
-<h2 id="git_1">git 강제로 특정 커밋으로 되돌리기</h2>
-<p>git 으로 버전 관리 할 때, 강제로 특정 커밋으로 되돌리기 위해서는 다음 명령어를 입력하면 됩니다.</p>
-<pre><code>$ git reset --hard &lt;commit&gt;
+<h2 id="sdl2-window-hide-or-show_1">SDL2 Window Hide or Show</h2>
+<p>SDL2를 사용할 때, 윈도우를 숨기는 방법으로는 <code>ShowWindow</code> 를 호출하는 방법이 있지만, 이는 Windows API로 크로스 플랫폼을 지향하는 SDL2에서는 어울리지 않는다.<br />
+이때, SDL2는 윈도우를 숨기거나 표시하는 기능을 API로 제공한다.  </p>
+<ul>
+<li>윈도우를 보여줄 경우...</li>
+</ul>
+<pre><code>void SDL_ShowWindow(SDL_Window * window);  
 </code></pre>
 
-<p><br><br></p>
+<ul>
+<li>윈도우를 숨길 경우...</li>
+</ul>
+<pre><code>void SDL_HideWindow(SDL_Window * window);
+</code></pre>
+
 <h2 id="reference">Reference</h2>
 <ul>
-<li><a href="https://medium.com/@kwoncharles/git-%EC%9D%B4%EC%A0%84-commit%EC%9C%BC%EB%A1%9C-%EB%8F%8C%EC%95%84%EA%B0%80%EA%B8%B0-cf6caed43ed5">[git] 이전 commit으로 돌아가기</a></li>
+<li><a href="https://wiki.libsdl.org/SDL_ShowWindow">SDL Wiki : SDL_ShowWindow</a></li>
+<li><a href="https://wiki.libsdl.org/SDL_HideWindow">SDL Wiki : SDL_HideWindow</a></li>
+<li><a href="https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-showwindow">MSDN : ShowWindow</a></li>
 </ul>
               
             </div>
@@ -249,10 +259,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../git 특정 브랜치만 clone 하는 방법/" class="btn btn-neutral float-right" title="git 특정 브랜치만 clone 하는 방법">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../git 강제로 특정 커밋으로 되돌리기/" class="btn btn-neutral float-right" title="git 강제로 특정 커밋으로 되돌리기">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../SDL2 Window Hide or Show/" class="btn btn-neutral" title="SDL2 Window Hide or Show"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href=".." class="btn btn-neutral" title="Docs"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -278,10 +288,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../SDL2 Window Hide or Show/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../git 특정 브랜치만 clone 하는 방법/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../git 강제로 특정 커밋으로 되돌리기/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
