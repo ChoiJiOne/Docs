@@ -15,8 +15,7 @@ void SDL_ShowWindow(SDL_Window * window);
 ```
 void SDL_HideWindow(SDL_Window * window);
 ```
-
-
+<br><br>
 
 
 ## Reference
