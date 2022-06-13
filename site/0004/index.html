@@ -13,7 +13,7 @@
     
     
       
-        <title>G++ 컴파일러 옵션에서 표준을 지정하는 방법은? - Docs</title>
+        <title>git push 수행 할 때 귀찮게 계정 정보를 입력하지 않는 방법 - Docs</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#g" class="md-skip">
+        <a href="#git-push" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              G++ 컴파일러 옵션에서 표준을 지정하는 방법은?
+              git push 수행 할 때 귀찮게 계정 정보를 입력하지 않는 방법
             
           </span>
         </div>
@@ -248,6 +248,21 @@
 
   
   
+  
+    <li class="md-nav__item">
+      <a href="../0003/" class="md-nav__link">
+        G++ 컴파일러 옵션에서 표준을 지정하는 방법은?
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
     
   
   
@@ -260,12 +275,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          G++ 컴파일러 옵션에서 표준을 지정하는 방법은?
+          git push 수행 할 때 귀찮게 계정 정보를 입력하지 않는 방법
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        G++ 컴파일러 옵션에서 표준을 지정하는 방법은?
+        git push 수행 할 때 귀찮게 계정 정보를 입력하지 않는 방법
       </a>
       
         
@@ -292,22 +307,28 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    문제 인식
+    해결?
+  </a>
+  
+    <nav class="md-nav" aria-label="해결?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-git-credential-store" class="md-nav__link">
+    방법 1. Git Credential / store
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    문제 해결
+        
+          <li class="md-nav__item">
+  <a href="#2-git-credential-cache" class="md-nav__link">
+    방법 2. Git Credential / cache
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    그렇다면, 컴파일 옵션을 지정하는 방법은?
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -322,21 +343,6 @@
   
 </nav>
       
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../0004/" class="md-nav__link">
-        git push 수행 할 때 귀찮게 계정 정보를 입력하지 않는 방법
-      </a>
     </li>
   
 
@@ -376,22 +382,28 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    문제 인식
+    해결?
+  </a>
+  
+    <nav class="md-nav" aria-label="해결?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-git-credential-store" class="md-nav__link">
+    방법 1. Git Credential / store
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    문제 해결
+        
+          <li class="md-nav__item">
+  <a href="#2-git-credential-cache" class="md-nav__link">
+    방법 2. Git Credential / cache
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    그렇다면, 컴파일 옵션을 지정하는 방법은?
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -416,58 +428,36 @@
                 
 
 
-<h1 id="g">G++ 컴파일러 옵션에서 표준을 지정하는 방법은?</h1>
+<h1 id="git-push">git push 수행 할 때 귀찮게 계정 정보를 입력하지 않는 방법</h1>
 <ul>
 <li>작성자 : 최지원
 <br><br></li>
 </ul>
 <h2 id="_1">상황</h2>
-<p>아래의 코드를 컴파일 하려는데, 다음과 같은 에러가 발생하는 상황이다.  </p>
-<p>컴파일 할 코드  </p>
-<pre><code>// 파일 이름 : test.cpp
-// 출처 : https://modoocode.com/309
-#include &lt;iostream&gt;
-#include &lt;map&gt;
-#include &lt;string&gt;
-#include &lt;utility&gt;
-
-std::optional&lt;std::string&gt; GetValueFromMap(const std::map&lt;int, std::string&gt;&amp; m,
-                                           int key) {
-  auto itr = m.find(key);
-  if (itr != m.end()) {
-    return itr-&gt;second;
-  }
-
-  // nullopt 는 &lt;optional&gt; 에 정의된 객체로 비어있는 optional 을 의미한다.
-  return std::nullopt;
-}
-
-int main() {
-  std::map&lt;int, std::string&gt; data = {{1, &quot;hi&quot;}, {2, &quot;hello&quot;}, {3, &quot;hiroo&quot;}};
-  std::cout &lt;&lt; &quot;맵에서 2 에 대응되는 값은? &quot; &lt;&lt; GetValueFromMap(data, 2).value()
-            &lt;&lt; std::endl;
-  std::cout &lt;&lt; &quot;맵에 4 는 존재하나요 &quot; &lt;&lt; std::boolalpha
-            &lt;&lt; GetValueFromMap(data, 4).has_value() &lt;&lt; std::endl;
-}
+<p>현재 귀찮게 git push를 수행할 때 계정 정보를 일일이 입력해야 하는 상황이다.<br />
+Windows 에서 git push를 수행할 때 귀찮게 계정 정보를 요구하지는 않지만, Linux나 MacOS에서는 귀찮게 입력을 해주어야 한다. 심지어 그냥 비밀번호를 입력하는 것이 아니라 토큰을 생성해서 그 토큰을 입력하도록 강제한다. 잃어버리면 다시 발급받으면 되지만 정말 귀찮다.  </p>
+<p><br><br></p>
+<h2 id="_2">해결?</h2>
+<p>문제 해결을 위해 이런 저런 정보를 찾아보던 중 다음과 같은 방법을 알아냈다.</p>
+<h3 id="1-git-credential-store">방법 1. Git Credential / store</h3>
+<p>credential.helper의 store 옵션을 주게되면 해당 git에선 반영구적으로 인증 절차 생략  </p>
+<pre><code>$ git config credential.helper store
 </code></pre>
-<p>에러 메시지  </p>
-<pre><code>test.cpp:6:6: error: 'optional' in namespace 'std' does not name a template type
+<p>만약, 모든 프로젝트에 적용하고 싶다면 다음과 같이 입력  </p>
+<pre><code>$ git config credential.helper store --global
 </code></pre>
-<p><br><br></p>
-<h2 id="_2">문제 인식</h2>
-<p><code>std::optional</code> 는 C++17 부터 지원하는 기능으로, 옵션으로 표준을 설정해주지 않는다면 C++11으로 설정된다.  </p>
-<p><br><br></p>
-<h2 id="_3">문제 해결</h2>
-<p>따라서, C++17 옵션을 넣어주면 문제가 해결될 듯 보인다.<br />
-<code>g++ -std=c++17 test.cpp -o test</code> 명령어를 입력 후 결과를 실행해본 결과 문제 없이 실행되었다.  </p>
-<p><br><br></p>
-<h2 id="_4">그렇다면, 컴파일 옵션을 지정하는 방법은?</h2>
-<p>명령어에 <code>g++ -std=c++XX</code>와 같이 옵션을 추가하면 된다. 이때, <code>XX</code> 부분에 C++ 표준 년도를 입력하면 된다. 단, 컴파일러가 지원하지 않는다면 사용할 수 없다.  </p>
+<h3 id="2-git-credential-cache">방법 2. Git Credential / cache</h3>
+<p>캐시에 계정정보를 일정시간 저장하는 방법으로, 시간은 timeout 옵션으로 초단위로 지정해줄 수 있다.  </p>
+<pre><code>$ git config credential.helper cache
+</code></pre>
+<p>만약, 360초(=6분) 를 저장하고 싶다면 다음과 같이 입력</p>
+<pre><code>$ git config credential.helper 'cache --timeout=360'
+</code></pre>
 <p><br><br></p>
 <h2 id="reference">Reference</h2>
 <ul>
-<li><a href="https://stackoverflow.com/questions/58951165/how-to-get-rid-of-std-c17-in-g-command-line">how to get rid of -std=c++17 in g++ command line?</a></li>
-<li><a href="https://modoocode.com/309">씹어먹는 C++ - &lt;17 - 5. C++ 17 의 std::optional, variant, tuple 살펴보기&gt;</a></li>
+<li><a href="https://noonestaysthesame.tistory.com/entry/1%EC%9B%945%EC%9D%BC-%EA%B8%80">Git pull/push 할 때 password 저장하기, 계정정보 저장</a></li>
+<li><a href="https://git-scm.com/book/ko/v2/Git-%EB%8F%84%EA%B5%AC-Credential-%EC%A0%80%EC%9E%A5%EC%86%8C">7.14 Git 도구 - Credential 저장소</a></li>
 </ul>
 
               
@@ -484,7 +474,7 @@ int main() {
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../0002/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Tetris2D 프로젝트에서 클래스의 초기화 위치를 어디에 두어야 할까?" rel="prev">
+        <a href="../0003/" class="md-footer__link md-footer__link--prev" aria-label="Previous: G++ 컴파일러 옵션에서 표준을 지정하는 방법은?" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -493,26 +483,11 @@ int main() {
               <span class="md-footer__direction">
                 Previous
               </span>
-              Tetris2D 프로젝트에서 클래스의 초기화 위치를 어디에 두어야 할까?
+              G++ 컴파일러 옵션에서 표준을 지정하는 방법은?
             </div>
           </div>
         </a>
       
-      
-        
-        <a href="../0004/" class="md-footer__link md-footer__link--next" aria-label="Next: git push 수행 할 때 귀찮게 계정 정보를 입력하지 않는 방법" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              git push 수행 할 때 귀찮게 계정 정보를 입력하지 않는 방법
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
       
     </nav>
   
