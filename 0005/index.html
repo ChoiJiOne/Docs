@@ -13,7 +13,7 @@
     
     
       
-        <title>git push 수행 할 때 귀찮게 계정 정보를 입력하지 않는 방법 - Docs</title>
+        <title>git 특정 브랜치만 clone 하는 방법 - Docs</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#git-push" class="md-skip">
+        <a href="#git-clone" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              git push 수행 할 때 귀찮게 계정 정보를 입력하지 않는 방법
+              git 특정 브랜치만 clone 하는 방법
             
           </span>
         </div>
@@ -263,6 +263,21 @@
 
   
   
+  
+    <li class="md-nav__item">
+      <a href="../0004/" class="md-nav__link">
+        git push 수행 할 때 귀찮게 계정 정보를 입력하지 않는 방법
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
     
   
   
@@ -275,12 +290,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          git push 수행 할 때 귀찮게 계정 정보를 입력하지 않는 방법
+          git 특정 브랜치만 clone 하는 방법
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        git push 수행 할 때 귀찮게 계정 정보를 입력하지 않는 방법
+        git 특정 브랜치만 clone 하는 방법
       </a>
       
         
@@ -306,29 +321,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    해결?
+  <a href="#git-clone_1" class="md-nav__link">
+    git 특정 브랜치만 clone 하는 방법
   </a>
-  
-    <nav class="md-nav" aria-label="해결?">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-git-credential-store" class="md-nav__link">
-    방법 1. Git Credential / store
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-git-credential-cache" class="md-nav__link">
-    방법 2. Git Credential / cache
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -343,21 +338,6 @@
   
 </nav>
       
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../0005/" class="md-nav__link">
-        git 특정 브랜치만 clone 하는 방법
-      </a>
     </li>
   
 
@@ -396,29 +376,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    해결?
+  <a href="#git-clone_1" class="md-nav__link">
+    git 특정 브랜치만 clone 하는 방법
   </a>
-  
-    <nav class="md-nav" aria-label="해결?">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-git-credential-store" class="md-nav__link">
-    방법 1. Git Credential / store
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-git-credential-cache" class="md-nav__link">
-    방법 2. Git Credential / cache
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -443,36 +403,22 @@
                 
 
 
-<h1 id="git-push">git push 수행 할 때 귀찮게 계정 정보를 입력하지 않는 방법</h1>
+<h1 id="git-clone">git 특정 브랜치만 clone 하는 방법</h1>
 <ul>
 <li>작성자 : 최지원
 <br><br></li>
 </ul>
 <h2 id="_1">상황</h2>
-<p>현재 귀찮게 git push를 수행할 때 계정 정보를 일일이 입력해야 하는 상황이다.<br />
-Windows 에서 git push를 수행할 때 귀찮게 계정 정보를 요구하지는 않지만, Linux나 MacOS에서는 귀찮게 입력을 해주어야 한다. 심지어 그냥 비밀번호를 입력하는 것이 아니라 토큰을 생성해서 그 토큰을 입력하도록 강제한다. 잃어버리면 다시 발급받으면 되지만 정말 귀찮다.  </p>
+<p>현재 관리하고 있는 모든 Repository 내부에 브랜치가 너무 많은 상황에서 현재 기본 설정 브랜치 이외의 브랜치도 가져오고 싶은데, 그냥 <code>git clone</code> 을 수행해서 코드를 가져오면 기본 설정된 브랜치만 가져오는 상황이다.  </p>
 <p><br><br></p>
-<h2 id="_2">해결?</h2>
-<p>문제 해결을 위해 이런 저런 정보를 찾아보던 중 다음과 같은 방법을 알아냈다.</p>
-<h3 id="1-git-credential-store">방법 1. Git Credential / store</h3>
-<p>credential.helper의 store 옵션을 주게되면 해당 git에선 반영구적으로 인증 절차 생략  </p>
-<pre><code>$ git config credential.helper store
-</code></pre>
-<p>만약, 모든 프로젝트에 적용하고 싶다면 다음과 같이 입력  </p>
-<pre><code>$ git config credential.helper store --global
-</code></pre>
-<h3 id="2-git-credential-cache">방법 2. Git Credential / cache</h3>
-<p>캐시에 계정정보를 일정시간 저장하는 방법으로, 시간은 timeout 옵션으로 초단위로 지정해줄 수 있다.  </p>
-<pre><code>$ git config credential.helper cache
-</code></pre>
-<p>만약, 360초(=6분) 를 저장하고 싶다면 다음과 같이 입력</p>
-<pre><code>$ git config credential.helper 'cache --timeout=360'
+<h2 id="git-clone_1">git 특정 브랜치만 clone 하는 방법</h2>
+<p>git 전체 브랜치를 clone 하지 않고 특정 브랜치만 clone 하는 방법은 다음과 같다.  </p>
+<pre><code>$ git clone -b &lt;branch-name&gt; --single-branch &lt;url&gt;
 </code></pre>
 <p><br><br></p>
 <h2 id="reference">Reference</h2>
 <ul>
-<li><a href="https://noonestaysthesame.tistory.com/entry/1%EC%9B%945%EC%9D%BC-%EA%B8%80">Git pull/push 할 때 password 저장하기, 계정정보 저장</a></li>
-<li><a href="https://git-scm.com/book/ko/v2/Git-%EB%8F%84%EA%B5%AC-Credential-%EC%A0%80%EC%9E%A5%EC%86%8C">7.14 Git 도구 - Credential 저장소</a></li>
+<li><a href="https://www.slipp.net/questions/577">git에서 특정 브랜치만 clone하는 방법</a></li>
 </ul>
 
               
@@ -489,7 +435,7 @@ Windows 에서 git push를 수행할 때 귀찮게 계정 정보를 요구하지
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../0003/" class="md-footer__link md-footer__link--prev" aria-label="Previous: G++ 컴파일러 옵션에서 표준을 지정하는 방법은?" rel="prev">
+        <a href="../0004/" class="md-footer__link md-footer__link--prev" aria-label="Previous: git push 수행 할 때 귀찮게 계정 정보를 입력하지 않는 방법" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -498,26 +444,11 @@ Windows 에서 git push를 수행할 때 귀찮게 계정 정보를 요구하지
               <span class="md-footer__direction">
                 Previous
               </span>
-              G++ 컴파일러 옵션에서 표준을 지정하는 방법은?
+              git push 수행 할 때 귀찮게 계정 정보를 입력하지 않는 방법
             </div>
           </div>
         </a>
       
-      
-        
-        <a href="../0005/" class="md-footer__link md-footer__link--next" aria-label="Next: git 특정 브랜치만 clone 하는 방법" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              git 특정 브랜치만 clone 하는 방법
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
       
     </nav>
   
