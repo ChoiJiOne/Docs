@@ -13,7 +13,7 @@
     
     
       
-        <title>초기화 위치를 어디에 두어야 할까? - Docs</title>
+        <title>Tetris2D 프로젝트에서 클래스의 초기화 위치를 어디에 두어야 할까? - Docs</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#tetris2d" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              초기화 위치를 어디에 두어야 할까?
+              Tetris2D 프로젝트에서 클래스의 초기화 위치를 어디에 두어야 할까?
             
           </span>
         </div>
@@ -245,12 +245,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          초기화 위치를 어디에 두어야 할까?
+          Tetris2D 프로젝트에서 클래스의 초기화 위치를 어디에 두어야 할까?
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        초기화 위치를 어디에 두어야 할까?
+        Tetris2D 프로젝트에서 클래스의 초기화 위치를 어디에 두어야 할까?
       </a>
       
         
@@ -269,21 +269,21 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     무슨 상황?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     문제 해결을 위한 키워드 및 아이디어를 찾아보자.
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     구분 짓는 규칙 적용.
   </a>
   
@@ -359,21 +359,21 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     무슨 상황?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     문제 해결을 위한 키워드 및 아이디어를 찾아보자.
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     구분 짓는 규칙 적용.
   </a>
   
@@ -413,20 +413,20 @@
                 
 
 
-<h1 id="_1">초기화 위치를 어디에 두어야 할까?</h1>
+<h1 id="tetris2d">Tetris2D 프로젝트에서 클래스의 초기화 위치를 어디에 두어야 할까?</h1>
 <ul>
 <li>작성자 : 최지원
 <br><br></li>
 </ul>
-<h2 id="_2">무슨 상황?</h2>
-<p>현재 Tetris2D 프로젝트 진행 중 다음과 같은 문제가 발생했다.
+<h2 id="_1">무슨 상황?</h2>
+<p>현재 <a href="https://github.com/ChoiJiOne/Tetris2D/tree/Version1.0">Tetris2D</a> 프로젝트 진행 중 다음과 같은 문제가 발생했다.
 GameEngine 폴더의 일부 클래스(GameEngine, GameFont, GameTexture2D 등등)는 특정 메서드를 호출해야 초기화를 할 수 있다. 생성자는 아무 일도 하지 않는다. 그러나 Game 부분에는 생성자에서 초기화를 진행한다. 개인적으로는 일관성을 유지해야 한다는 생각이기 때문에, 이 둘의 간극을 해결해야 할 상황이다.</p>
-<h2 id="_3">문제 해결을 위한 키워드 및 아이디어를 찾아보자.</h2>
+<h2 id="_2">문제 해결을 위한 키워드 및 아이디어를 찾아보자.</h2>
 <p>보통 뭔가를 뒤로 미루면 lazy, delay, deferred 이런 말들을 많이 쓴다.<br />
 위 키워드로 좀 찾아봤는데, 눈에 띄는 것은 없다.</p>
 <p>그래서 다음 문장으로 검색을 진행했다. <code>Does the constructor have to initialize?</code><br />
 역시 찾아봤는데, 눈에 띄는 것은 없다.</p>
-<h2 id="_4">구분 짓는 규칙 적용.</h2>
+<h2 id="_3">구분 짓는 규칙 적용.</h2>
 <p>그래서, 고민은 좀 더 해야겠지만 이 문서를 작성하는 시점에서는 다음과 같이 구분짓는다.  </p>
 <h3 id="1">1. 게임 엔진 요소는 지연 초기화를 수행한다.</h3>
 <p>즉, 클래스의 인스턴스 이외의 요소에 초기화를 생성하는 메서드가 있고, 그 메서드를 적어도 한 번은 호출해야 한다.  </p>
