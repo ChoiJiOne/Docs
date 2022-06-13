@@ -321,17 +321,25 @@
 <br><br></li>
 </ul>
 <h2 id="mkdocs_1">mkdocs를 사용하여 개인 문서를 추가하는 과정</h2>
-<p>개인 문서를 추가하는 절차는 다음과 같다.<br />
-- 1단계 : Markdown 포멧으로 문서를 작성한다.
-    - 이때, 작성자는 적지 않아도 되지만, 마크 다운 파일의 이름은 생성 순서 번호로 지정해야 한다.
-    - 어차피 나중에(언제 올지는 모르지만) 자동화를 통해서 문서 정리를 할꺼기 때문에 그냥 파일 이름은 생성 순서 번호로 지정한다.
-- 2단계 : Bash 셸에서 <code>$ mkdocs build</code> 명령어를 실행한다.
-    - 이때 패키지 관리가 용이한 리눅스를 이용하므로, 반드시 Visual Studio 터미널에서 WSL2를 실행 후 Bash 셸에서 <code>$ mkdocs build</code> 명령어를 실행해야 한다.
-- 3단계 : Bash 셸에서 <code>$ mkdocs gh-deploy</code> 명령어를 실행한다.
-- 4단계 : Bash 셸에서 <code>$ mkdocs serve</code> 명령어를 실행하여 작성한 문서를 확인한다.
-    - 원격 저장소에 올라가기 전에 오류를 한 번 확인하고 가야 한다.
-- 5단계 : 작성한 문서를 commit 하고 원격 저장소에 push 한다.
-<br><br></p>
+<p>개인 문서를 추가하는 절차는 다음과 같다.  </p>
+<ul>
+<li>1단계 : Markdown 포멧으로 문서를 작성한다.<ul>
+<li>이때, 작성자는 적지 않아도 되지만, 마크 다운 파일의 이름은 생성 순서 번호로 지정해야 한다.</li>
+<li>어차피 나중에(언제 올지는 모르지만) 자동화를 통해서 문서 정리를 할꺼기 때문에 그냥 파일 이름은 생성 순서 번호로 지정한다.</li>
+</ul>
+</li>
+<li>2단계 : Bash 셸에서 <code>$ mkdocs build</code> 명령어를 실행한다.<ul>
+<li>이때 패키지 관리가 용이한 리눅스를 이용하므로, 반드시 Visual Studio 터미널에서 WSL2를 실행 후 Bash 셸에서 <code>$ mkdocs build</code> 명령어를 실행해야 한다.</li>
+</ul>
+</li>
+<li>3단계 : Bash 셸에서 <code>$ mkdocs gh-deploy</code> 명령어를 실행한다.</li>
+<li>4단계 : Bash 셸에서 <code>$ mkdocs serve</code> 명령어를 실행하여 작성한 문서를 확인한다.<ul>
+<li>원격 저장소에 올라가기 전에 오류를 한 번 확인하고 가야 한다.</li>
+</ul>
+</li>
+<li>5단계 : 작성한 문서를 commit 하고 원격 저장소에 push 한다.</li>
+</ul>
+<p><br><br></p>
 
               
             </article>
