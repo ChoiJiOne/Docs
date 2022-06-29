@@ -375,14 +375,14 @@
       
         <li class="md-nav__item">
   <a href="#mkdocs_1" class="md-nav__link">
-    mkdocs 문서화를 위한 준비 작업
+    mkdocs 문서화를 위한 설치 작업
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    문서화 세팅
+  <a href="#mkdocs_2" class="md-nav__link">
+    mkdocs 문서화를 위한 준비 작업
   </a>
   
 </li>
@@ -589,14 +589,14 @@
       
         <li class="md-nav__item">
   <a href="#mkdocs_1" class="md-nav__link">
-    mkdocs 문서화를 위한 준비 작업
+    mkdocs 문서화를 위한 설치 작업
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    문서화 세팅
+  <a href="#mkdocs_2" class="md-nav__link">
+    mkdocs 문서화를 위한 준비 작업
   </a>
   
 </li>
@@ -621,7 +621,7 @@
 <li>작성일 : 2022.06.28
 <br><br></li>
 </ul>
-<h2 id="mkdocs_1">mkdocs 문서화를 위한 준비 작업</h2>
+<h2 id="mkdocs_1">mkdocs 문서화를 위한 설치 작업</h2>
 <p>다음 두 가지 설치 필요</p>
 <pre><code>// 다음은 필수
 $ pip install mkdocs
@@ -630,8 +630,12 @@ $ pip install mkdocs
 $ pip install mkdocs-rtd-dropdown
 $ pip install mkdocs-material
 </code></pre>
-<h2 id="_1">문서화 세팅</h2>
-<p><code>mkdocs.yml</code> 의 내부에 다음 추가</p>
+<p><br><br></p>
+<h2 id="mkdocs_2">mkdocs 문서화를 위한 준비 작업</h2>
+<p>다음 명령어를 통해 mkdocs 문서화를 위한 준비  </p>
+<pre><code>$ mkdocs new &lt;docs-name&gt;
+</code></pre>
+<p>다음으로, 문서 폴더 내부의 <code>mkdocs.yml</code> 파일에 아래의 내용 추가  </p>
 <pre><code>theme:
   name: 'material' or `rtd-dropdown`
 </code></pre>
